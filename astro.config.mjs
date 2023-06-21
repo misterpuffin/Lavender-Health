@@ -1,4 +1,17 @@
-import { defineConfig } from 'astro/config';
+import { defineConfig } from "astro/config";
+import react from '@astrojs/react';
+// import storyblok from "@storyblok/astro";
 
-// https://astro.build/config
-export default defineConfig({});
+export default defineConfig({
+  integrations: [
+    react(),
+    // storyblok({
+    //   accessToken: "<your-access-token>",
+    // }),
+  ],
+  vite: {
+    ssr: {
+      noExternal: ['antd'],
+    }
+  }
+});
