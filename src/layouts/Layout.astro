@@ -1,14 +1,46 @@
 ---
+import '@fontsource/poppins';
+import '@fontsource-variable/playfair-display';
+
+import { Navbar } from '../components/navigation/Navbar'
+import { createTheme, NextUIProvider } from '@nextui-org/react';
+
 export interface Props {
 	title: string;
 }
 
-const { title } = Astro.props;
-import 'antd/dist/reset.css';
-import '@fontsource/poppins';
-import '@fontsource-variable/playfair-display';
+const theme = createTheme({
+  type: "light", // it could be "light" or "dark"
+  theme: {
+    colors: {
+      // brand colors
+      // primaryLight: '$green200',
+      // primaryLightHover: '$green300',
+      // primaryLightActive: '$green400',
+      // primaryLightContrast: '$green600',
+      primary: '#FECF8B',
+      // primaryBorder: '$green500',
+      // primaryBorderHover: '$green600',
+      // primarySolidHover: '$green700',
+      // primarySolidContrast: '$white',
+      // primaryShadow: '$green500',
+      //
+      // gradient: 'linear-gradient(112deg, $blue100 -25%, $pink500 -10%, $purple500 80%)',
+      // link: '#5E1DAD',
+      //
+      // you can also create your own color
+      // myColor: '#ff4ecd'
 
-import Navbar from '../components/navigation/navbar.astro'
+      // ...  more colors
+    },
+    // space: {},
+    fonts: {
+			serif: 'Playfair Display Variable',
+			sans: 'Poppins'
+		}
+  }
+})
+const { title } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -22,10 +54,12 @@ import Navbar from '../components/navigation/navbar.astro'
 		<title>{title}</title>
 	</head>
 	<body>
-		<header>
-			<Navbar></Navbar>
-		</header>
-		<slot />
+		<NextUIProvider client:only="react" theme={theme}>
+			<header>
+				<Navbar client:only="react"/>
+			</header>
+			<slot />
+		</NextUIProvider>
 	</body>
 </html>
 <style is:global>

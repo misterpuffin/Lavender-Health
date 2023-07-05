@@ -1,15 +1,54 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { Button } from 'antd';
+import { Button } from '@nextui-org/react';
+import { Picture } from '@astrojs/image/components';
+import hero from '../images/hero.png';
+import cheryl from '../images/cheryl.png';
 ---
 
 <Layout title="Lavender Health">
 	<main>
-		<span>Hello world!<span/>
-		<span class="font-serif">Hello world!<span/>
-		<Button client:only>I am groot</Button>
+		<div id="hero" class="flex h-[50vh] align-center p-16 sm:pl-16 py-4">
+			<div class="flex flex-col justify-center sm:text-left sm:items-start items-center text-center basis-full sm:w-2/5 sm:basis-2/5">
+				<h1 class="font-serif my-4 font-medium text-5xl">Take the time to recharge</h1>
+				<p class="text-lg">Get care from the people who care.</p>
+				<div class="my-8 flex items-center justify-between">
+					<Button className="mr-4 p-8" color="warning" auto rounded client:only="react">Book Now</Button>
+					<Button className="ghostButton ml-4 p-8" color="warning" auto ghost rounded client:only="react">Contact Us</Button>
+				</div>
+			</div>
+			<div class="flex items-center basis-0 sm:basis-3/5 invisible sm:visible">
+				<Picture class="lg:pt-32 relative" src={hero} alt="hero" widths={[300, 600, 800]} sizes="(max-width: 800px) 100%, 1200px" aspectRatio={800 / 500} fit="contain"/>
+			</div>
+		</div>
+		<div id="about" class="flex p-8 md:p-16 md:pt-32 align-center flex-col md:flex-row items-center md:items-start">
+			<div class="md:mr-16 md:w-1/2 w-full">
+				<Picture class="w-full" src={cheryl} alt="cheryl" widths={[800, 600, 800]} sizes="100%" aspectRatio={800 / 500} fit="cover"/>
+			</div>
+			<div class="flex flex-col justify-center text-lg md:text-left md:items-start items-center text-center basis-full md:w-2/5 md:basis-2/5">
+				<h1 class="font-serif my-4 font-medium text-5xl">About Lavender Health</h1>
+				<p>
+					Lavender Health is led by Cheryl Tan APRN. Cheryl is a compassionate medical professional and a leading expert in her field. She has over 16 years of experience as a nurse practitioner and she is double board certified. She earned her Master of Science in Family Health Nursing from Wichita State University and later obtained her Master of Science in Psychiatric Mental Health Nursing from Washburn University. She is board certified by AANP and ANCC. She is extremely knowledgeable about medication evaluation and management, ensuring that every patient is on the proper medication. She will also treat each patient with dignity and compassion. She also have Latte her helpful goldendoodle who enjoys seeing patients with her.
+				</p>
+				<br/>
+				<p>
+					Cheryl treats a variety of diagnosis include Major Depression, Anxiety, Bipolar, Schizophrenia, ADHD, Binge eating disorder, insomnia. She can also help with patients struggling with their weight and desiring weight loss. She works with patients 7 years and up. If you would like Cheryl to evaluate your medication regimen, please schedule an appointment with her. She sees patients in person and virtually. She accepts most types of commercial insurance, as well as Medicare and Medicaid.
+				</p>
+			</div>
+		</div>
+
 	</main>
 </Layout>
 
 <style>
+#hero {
+	background-color: #643A6B;
+	color: #EDEDED;
+}
+#about {
+	background-color: #EEEDF3;
+}
+.ghostButton {
+	color: #EDEDED !important;
+}
 </style>
