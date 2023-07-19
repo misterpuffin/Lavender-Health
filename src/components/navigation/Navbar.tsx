@@ -8,34 +8,28 @@ export function Navbar() {
 
   const variants = ["static", "floating", "sticky"];
   const collapseItems = [
-    "Profile",
-    "Dashboard",
-    "Activity",
-    "Analytics",
-    "System",
-    "Deployments",
-    "My Settings",
-    "Team Settings",
-    "Help & Feedback",
-    "Log Out",
+    "About",
+    "Services",
+    "Contact"
   ];
 
   return (
     <NextNavbar isBordered variant={variant}>
       <NextNavbar.Brand>
-        <img src={Logo.src} alt='logo' height="64px" width="64px"/>
-        <Text b color="inherit" className="font-serif text-2xl" hideIn="xs">
-          Lavender Health
-        </Text>
+        <Link href="/" color="text">
+          <img src={Logo.src} alt='logo' height="64px" width="64px"/>
+          <Text b color="inherit" className="font-serif text-2xl" hideIn="xs">
+            Lavender Health
+          </Text>
+        </Link>
       </NextNavbar.Brand>
-      <NextNavbar.Content hideIn="sm">
-        <NextNavbar.Link className="font-sans" href="features">Features</NextNavbar.Link>
-        <NextNavbar.Link className="font-sans" href="#">Customers</NextNavbar.Link>
-        <NextNavbar.Link className="font-sans" href="#">Pricing</NextNavbar.Link>
-        <NextNavbar.Link className="font-sans" href="#">Company</NextNavbar.Link>
+      <NextNavbar.Content hideIn="sm" activeColor="secondary">
+        {collapseItems.map((item) => {
+          return <NextNavbar.Link isActive={window.location.pathname.substring(1) === item.toLowerCase()} className="font-sans" href={item.toLowerCase()}>{item}</NextNavbar.Link>
+        })}
       </NextNavbar.Content>
       <NextNavbar.Toggle showIn="sm" />
-      <NextNavbar.Collapse disableAnimation>
+      <NextNavbar.Collapse showIn="sm" disableAnimation>
         <div className="flex flex-col items-end">
           {collapseItems.map((item, index) => (
             <NextNavbar.CollapseItem key={item}>
@@ -45,7 +39,7 @@ export function Navbar() {
                   minWidth: "100%",
                   textAlign: 'right'
                 }}
-                href="#"
+                href={item.toLowerCase()}
               >
                 {item}
               </Link>
