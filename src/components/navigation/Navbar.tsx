@@ -24,7 +24,7 @@ export function Navbar() {
       </NextNavbar.Brand>
       <NextNavbar.Content hideIn="sm" activeColor="secondary">
         {collapseItems.map((item) => {
-          return <NextNavbar.Link isActive={window.location.pathname.substring(1) === item.toLowerCase()} className="font-sans" href={item.toLowerCase()}>{item}</NextNavbar.Link>
+          return <NextNavbar.Link isActive={window.location.pathname.substring(1) === item.toLowerCase()} className="font-sans" href={`/${item.toLowerCase()}`}>{item}</NextNavbar.Link>
         })}
       </NextNavbar.Content>
       <NextNavbar.Toggle showIn="sm" />
@@ -38,7 +38,7 @@ export function Navbar() {
                   minWidth: "100%",
                   textAlign: 'right'
                 }}
-                href={item.toLowerCase()}
+                href={`/${item.toLowerCase()}`}
               >
                 {item}
               </Link>
