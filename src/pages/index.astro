@@ -13,7 +13,11 @@ import cheryl from '../images/cheryl.png';
 				<h1 class="font-serif my-4 font-medium text-5xl">Take the time to recharge</h1>
 				<p class="text-lg">Get care from the people who care.</p>
 				<div class="my-8 flex items-center justify-between">
-					<Button className="mr-4 p-8" color="warning" auto rounded client:only="react">Book Now</Button>
+					<Button className="mr-4 p-8" color="warning" auto rounded client:only="react">
+						<Link color="inherit" href="contact">
+							Book Now
+						</Link>
+					</Button>
 					<Button className="ghostButton ml-4 p-8" color="warning" auto ghost rounded client:only="react">
 						<Link color="inherit" href="contact">
 							Contact Us
@@ -31,13 +35,11 @@ import cheryl from '../images/cheryl.png';
 			</div>
 			<div class="flex flex-col justify-center text-lg md:text-left md:items-start items-center text-center basis-full md:w-2/5 md:basis-2/5">
 				<h1 class="font-serif my-4 font-medium text-5xl">About Lavender Health</h1>
-				<p>
-					Lavender Health is led by Cheryl Tan APRN. Cheryl is a compassionate medical professional and a leading expert in her field. She has over 16 years of experience as a nurse practitioner and she is double board certified. She earned her Master of Science in Family Health Nursing from Wichita State University and later obtained her Master of Science in Psychiatric Mental Health Nursing from Washburn University. She is board certified by AANP and ANCC. She is extremely knowledgeable about medication evaluation and management, ensuring that every patient is on the proper medication. She will also treat each patient with dignity and compassion. She also has Latte her helpful goldendoodle who enjoys seeing patients with her.
+				<p class="text-lg leading-loose">
+					Lavender Health is led by Cheryl Tan APRN. Cheryl is a compassionate medical professional and a leading expert in her field. She has over 16 years of experience as a nurse practitioner and she is double board certified. She earned her Master of Science in Family Health Nursing from Wichita State University and later obtained her Master of Science in Psychiatric Mental Health Nursing from Washburn University. She is board certified by AANP and ANCC. She is extremely knowledgeable about medication evaluation and management, ensuring that every patient is on the proper medication.
 				</p>
 				<br/>
-				<p>
-					Cheryl treats a variety of diagnosis include Major Depression, Anxiety, Bipolar, Schizophrenia, ADHD, Binge eating disorder, insomnia. She can also help with patients struggling with their weight and desiring weight loss. She works with patients 7 years and up. If you would like Cheryl to evaluate your medication regimen, please schedule an appointment with her. She sees patients in person and virtually. She accepts most types of commercial insurance, as well as Medicare and Medicaid.
-				</p>
+				<Button color="warning" size="lg" auto rounded client:load><Link color="inherit" href="about">Find out more</Link></Button>
 			</div>
 		</div>
 

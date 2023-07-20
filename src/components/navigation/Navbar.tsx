@@ -9,7 +9,6 @@ export function Navbar() {
   const variants = ["static", "floating", "sticky"];
   const collapseItems = [
     "About",
-    "Services",
     "Contact"
   ];
 

@@ -1,6 +1,79 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
+import { Picture } from '@astrojs/image/components';
+import cheryl from '../images/cheryl.png';
+import latte from '../images/latte.png';
 ---
+
 <Layout title="About">
-	
+  <div
+    id="about"
+    class="about flex p-8 md:p-16 md:pt-32 align-center flex-col md:flex-row items-center md:items-start"
+  >
+    <div class="md:mr-16 md:w-1/2 w-full">
+      <Picture
+	class="w-full"
+	src={cheryl}
+	alt="cheryl"
+	widths={[800, 600, 800]}
+	sizes="100%"
+	aspectRatio={800 / 500}
+	fit="cover"
+      />
+    </div>
+    <div
+      class="flex flex-col justify-center md:text-left md:items-start items-center text-center basis-full md:w-2/5 md:basis-2/5"
+    >
+      <h1 class="font-serif my-4 font-medium text-5xl">
+	About Lavender Health
+      </h1>
+      <p class="text-lg leading-loose">
+	Lavender Health is led by Cheryl Tan APRN. Cheryl is a compassionate
+	medical professional and a leading expert in her field. She has over 16
+	years of experience as a nurse practitioner and she is double board
+	certified. She earned her Master of Science in Family Health Nursing
+	from Wichita State University and later obtained her Master of Science
+	in Psychiatric Mental Health Nursing from Washburn University. She is
+	board certified by AANP and ANCC. She is extremely knowledgeable about
+	medication evaluation and management, ensuring that every patient is on
+	the proper medication. She will also treat each patient with dignity and
+	compassion. She also has Latte her helpful goldendoodle who enjoys
+	seeing patients with her.
+      </p>
+    </div>
+  </div>
+  <div
+    class="about flex p-8 md:p-16 md:pt-32 align-center flex-col md:flex-row items-center md:items-start"
+  >
+    <div
+      class="flex flex-col justify-center md:text-left md:items-start items-center text-center basis-full md:w-2/5 md:basis-2/5"
+    >
+      <p class="text-lg leading-loose">
+	Cheryl treats a variety of diagnosis include Major Depression, Anxiety,
+	Bipolar, Schizophrenia, ADHD, Binge eating disorder, insomnia. She can
+	also help with patients struggling with their weight and desiring weight
+	loss. She works with patients 7 years and up. If you would like Cheryl
+	to evaluate your medication regimen, please schedule an appointment with
+	her. She sees patients in person and virtually. She accepts most types
+	of commercial insurance, as well as Medicare and Medicaid.
+      </p>
+      <br/>
+    </div>
+    <div class="md:ml-16 md:w-1/2 w-full">
+      <Picture
+	class="w-full"
+	src={latte}
+	alt="latte"
+	widths={[800, 600, 800]}
+	sizes="100%"
+	aspectRatio={800 / 500}
+	fit="cover"
+      />
+    </div>
+  </div>
 </Layout>
+<style>
+.about {
+  background-color: #EFEFEF;
+}
+</style>
